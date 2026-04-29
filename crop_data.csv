@@ -1,0 +1,4 @@
+N,P,K,temperature,humidity,ph,rainfall,label
+90,40,40,25,80,6.5,200,rice
+85,35,45,28,70,6.0,150,maize
+60,30,30,22,60,5.8,120,coffee
