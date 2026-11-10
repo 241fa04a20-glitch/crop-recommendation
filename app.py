@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import os
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -9,7 +10,12 @@ app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
 
 # MongoDB
-client = MongoClient("mongodb://localhost:27017/")
+mongo_uri = os.environ.get(
+    "MONGODB_URI",
+    "mongodb://localhost:27017/"
+)
+
+client = MongoClient(mongo_uri)
 db = client["cropDB"]
 collection = db["predictions"]
 
